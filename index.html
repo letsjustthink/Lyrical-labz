@@ -1,0 +1,59 @@
+<!-- FILE: index.html ui will be edited here-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lyrical Lab (No DB, Push)</title>
+  <style>
+    body { margin:0; font-family: system-ui, Arial; background:#07070b; color:#eaffff; }
+    .top { position:sticky; top:0; background:#000a; backdrop-filter: blur(10px); padding:12px; border-bottom:1px solid #ffffff18; }
+    .pill { display:inline-block; padding:6px 10px; border-radius:999px; background:#ffffff10; border:1px solid #ffffff18; font-weight:800; font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
+    .pill.yellow { background:#ffd400; color:#000; border-color:#00000033; }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 16px; }
+    input, button { font-size:16px; } /* prevents iOS zoom */
+    .row { display:flex; gap:10px; flex-wrap:wrap; }
+    .input { flex: 1 1 220px; padding:14px 16px; border-radius:16px; border:1px solid #ffffff18; background:#ffffff0a; color:#fff; font-weight:800; text-transform:uppercase; }
+    .btn { padding:14px 16px; border-radius:16px; border:1px solid #ffffff18; background:#ffffff10; color:#fff; font-weight:900; letter-spacing:.12em; text-transform:uppercase; }
+    .btn.yellow { background:#ffd400; color:#000; border-color:#00000033; }
+    .log { margin-top: 14px; border:1px solid #ffffff18; border-radius: 18px; overflow:hidden; }
+    .log h3 { margin:0; padding:12px 14px; font-size:12px; letter-spacing:.2em; text-transform:uppercase; opacity:.7; border-bottom:1px solid #ffffff18; }
+    .lines { padding: 14px; }
+    .line { padding:8px 0; border-bottom:1px solid #ffffff10; }
+    .muted { opacity:.65; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <div class="wrap row" style="align-items:center; justify-content:space-between;">
+      <div>
+        <span class="pill" id="roomPill">ROOM: ----</span>
+        <span class="pill" id="sectionPill">VERSE 1 • BAR 1/4</span>
+      </div>
+      <div class="pill yellow" id="turnPill">CONNECTING…</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="row" style="margin-top:10px;">
+      <input id="name" class="input" placeholder="NAME (COSMETIC)" maxlength="12" />
+      <input id="room" class="input" placeholder="ROOM CODE (6)" maxlength="6" />
+      <button id="joinBtn" class="btn">Join</button>
+    </div>
+
+    <div class="row" style="margin-top:10px;">
+      <input id="word" class="input" placeholder="TYPE ONE WORD" maxlength="20" />
+      <button id="sendBtn" class="btn">Send Word</button>
+      <button id="nextBarBtn" class="btn yellow">Next Bar</button>
+    </div>
+
+    <div class="log">
+      <h3>Teleprompter</h3>
+      <div class="lines" id="teleprompter"></div>
+      <div class="lines muted" id="currentLine"></div>
+    </div>
+  </div>
+
+  <script src="./client.js"></script>
+</body>
+</html>
